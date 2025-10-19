@@ -1,3 +1,6 @@
 spring:
   application:
     name: patientsvc
+  h2:
+    console:
+      enabled: true
