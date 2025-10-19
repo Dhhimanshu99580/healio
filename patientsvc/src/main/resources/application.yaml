@@ -3,4 +3,19 @@ spring:
     name: patientsvc
   h2:
     console:
+      path: /h2-console
       enabled: true
+  datasource:
+    url: jdbc:h2:mem:patientsdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: admin_himanshu
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: always
+  server:
+    port: 8080
