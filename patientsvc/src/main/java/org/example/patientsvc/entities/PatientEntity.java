@@ -11,6 +11,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -36,5 +37,14 @@ public class PatientEntity {
 
     @NotNull
     private LocalDate dateOfBirth;
+
+    @NotNull
+    @Column
+    private LocalDateTime addedOn;
+
+    @NotNull
+    @Column
+    private LocalDateTime updatedon;
+
 
 }

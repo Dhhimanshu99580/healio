@@ -3,6 +3,7 @@ package org.example.patientsvc.services;
 import org.example.patientsvc.domains.PatientResponseDTO;
 import org.example.patientsvc.domains.UpdatePatientDetails;
 import org.example.patientsvc.entities.PatientEntity;
+import org.example.patientsvc.exceptions.PatientNotFoundException;
 import org.example.patientsvc.mappers.PatientMapper;
 import org.example.patientsvc.repositories.PatientRepository;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class PatientServiceImpl implements PatientService{
 
     @Override
     public PatientResponseDTO updatePatientDetails(UpdatePatientDetails updatePatientDetails) {
-        PatientEntity patientData = patientRepository.findById(updatePatientDetails.getId()).orElseThrow(() -> new RuntimeException("Patient not found"));
+        PatientEntity patientData = patientRepository.findById(updatePatientDetails.getId()).orElseThrow(() -> new PatientNotFoundException("Patient not found"));
         patientData.setId(updatePatientDetails.getId());
         patientData.setName(updatePatientDetails.getName());
         patientData.setPhone(updatePatientDetails.getPhone());
