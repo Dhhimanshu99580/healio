@@ -44,7 +44,6 @@ public class PatientEntity {
 
     @NotNull
     @Column
-    private LocalDateTime updatedon;
-
+    private LocalDateTime updatedOn;
 
 }
