@@ -21,11 +21,13 @@ public class PatientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
     @NotNull
     private String name;
 
-    @NotNull @Email
-    @Column(unique=true)
+    @NotNull
+    @Email
+    @Column(unique = true)
     private String email;
 
     @NotNull
@@ -38,12 +40,6 @@ public class PatientEntity {
     @NotNull
     private LocalDate dateOfBirth;
 
-    @NotNull
-    @Column
     private LocalDateTime addedOn;
-
-    @NotNull
-    @Column
     private LocalDateTime updatedOn;
-
 }
