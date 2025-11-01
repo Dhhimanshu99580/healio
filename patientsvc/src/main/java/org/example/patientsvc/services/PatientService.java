@@ -2,6 +2,8 @@ package org.example.patientsvc.services;
 
 import org.example.patientsvc.domains.PatientCreationRequest;
 import org.example.patientsvc.domains.PatientCreationResponse;
+import org.example.patientsvc.domains.PatientDeletionRequest;
+import org.example.patientsvc.domains.PatientDeletionResponse;
 import org.example.patientsvc.domains.PatientResponseDTO;
 import org.example.patientsvc.domains.UpdatePatientDetails;
 
@@ -13,4 +15,5 @@ public interface PatientService {
  PatientResponseDTO updatePatientDetails(UpdatePatientDetails updatePatientDetails);
 
  PatientCreationResponse createPatient(PatientCreationRequest request);
+ PatientDeletionResponse deletePatient(PatientDeletionRequest request);
 }

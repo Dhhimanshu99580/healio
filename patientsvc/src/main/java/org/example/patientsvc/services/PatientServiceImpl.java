@@ -2,6 +2,8 @@ package org.example.patientsvc.services;
 
 import org.example.patientsvc.domains.PatientCreationRequest;
 import org.example.patientsvc.domains.PatientCreationResponse;
+import org.example.patientsvc.domains.PatientDeletionRequest;
+import org.example.patientsvc.domains.PatientDeletionResponse;
 import org.example.patientsvc.domains.PatientResponseDTO;
 import org.example.patientsvc.domains.UpdatePatientDetails;
 import org.example.patientsvc.entities.PatientEntity;
@@ -52,5 +54,11 @@ public class PatientServiceImpl implements PatientService{
         PatientEntity patientEntity = patientMapper.mapPatientRequestToEntity(request);
         patientRepository.save(patientEntity);
         return patientMapper.mapPatientEntityToResponse(patientEntity);
+    }
+    @Override
+    public PatientDeletionResponse deletePatient(PatientDeletionRequest request) {
+        PatientEntity patientEntity = patientRepository.findById(request.getId()).orElseThrow(()-> new PatientNotFoundException("Patient not found with id: " + request.getId()));
+        patientRepository.delete(patientEntity);
+        return patientMapper.mapPatientEntityToDeletionResponse(patientEntity);
     }
 }

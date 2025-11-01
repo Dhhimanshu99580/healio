@@ -2,6 +2,7 @@ package org.example.patientsvc.mappers;
 
 import org.example.patientsvc.domains.PatientCreationRequest;
 import org.example.patientsvc.domains.PatientCreationResponse;
+import org.example.patientsvc.domains.PatientDeletionResponse;
 import org.example.patientsvc.domains.PatientResponseDTO;
 import org.example.patientsvc.entities.PatientEntity;
 import org.mapstruct.Mapper;
@@ -22,4 +23,6 @@ public interface PatientMapper {
   @Mapping(source="address", target="patientAddress")
   @Mapping(source="phone", target="patientPhone")
   PatientCreationResponse mapPatientEntityToResponse(PatientEntity patientEntity);
+
+  PatientDeletionResponse mapPatientEntityToDeletionResponse(PatientEntity patientEntity);
 }
