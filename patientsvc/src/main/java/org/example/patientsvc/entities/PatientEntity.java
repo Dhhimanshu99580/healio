@@ -11,6 +11,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -20,11 +21,13 @@ public class PatientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
     @NotNull
     private String name;
 
-    @NotNull @Email
-    @Column(unique=true)
+    @NotNull
+    @Email
+    @Column(unique = true)
     private String email;
 
     @NotNull
@@ -37,4 +40,6 @@ public class PatientEntity {
     @NotNull
     private LocalDate dateOfBirth;
 
+    private LocalDateTime addedOn;
+    private LocalDateTime updatedOn;
 }
