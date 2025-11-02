@@ -7,6 +7,7 @@ import org.example.patientsvc.domains.PatientDeletionRequest;
 import org.example.patientsvc.domains.PatientDeletionResponse;
 import org.example.patientsvc.domains.PatientResponseDTO;
 import org.example.patientsvc.domains.UpdatePatientDetails;
+import org.example.patientsvc.services.PatientService;
 import org.example.patientsvc.services.PatientServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,10 +23,10 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/patients")
+@RequestMapping("/v1/patients")
 public class PatientController {
-    private final PatientServiceImpl patientService;
-    public PatientController(PatientServiceImpl patientService) {
+    private final PatientService patientService;
+    public PatientController(PatientService patientService) {
         this.patientService = patientService;
     }
 

@@ -1,6 +1,5 @@
 package org.example.patientsvc.exceptions;
 
-import javax.management.remote.JMXServerErrorException;
 
 public class patientAlreadyExistException extends RuntimeException{
     public patientAlreadyExistException(String message) {
