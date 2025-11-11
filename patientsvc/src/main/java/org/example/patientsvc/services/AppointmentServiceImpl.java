@@ -2,6 +2,8 @@ package org.example.patientsvc.services;
 
 import org.example.patientsvc.domains.AppointmentRequest;
 import org.example.patientsvc.domains.AppointmentResponse;
+import org.example.patientsvc.domains.UpdateAppointmentRequest;
+import org.example.patientsvc.domains.UpdateAppointmentResponse;
 import org.example.patientsvc.entities.Appointment;
 import org.example.patientsvc.entities.DoctorAvailability;
 import org.example.patientsvc.entities.Doctors;
@@ -62,5 +64,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setUpdatedOn(LocalDateTime.now());
         appointment = appointmentRepository.save(appointment);
         return appointmentMapper.mapAppointmentResponse(appointment);
+    }
+    @Override
+    public UpdateAppointmentResponse updateAppointment(UpdateAppointmentRequest request) {
+
     }
 }
