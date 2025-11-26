@@ -33,6 +33,13 @@ public class PatientServiceImpl implements PatientService{
     }
 
     @Override
+    public PatientResponseDTO getPatientById(java.util.UUID id) {
+        PatientEntity patient = patientRepository.findById(id)
+                .orElseThrow(() -> new PatientNotFoundException("Patient not found with id: " + id));
+        return patientMapper.mapPatientResponseDTO(patient);
+    }
+
+    @Override
     public PatientResponseDTO updatePatientDetails(UpdatePatientDetails updatePatientDetails) {
         PatientEntity patientData = patientRepository.findById(updatePatientDetails.getId()).orElseThrow(() -> new PatientNotFoundException("Patient not found"));
         patientData.setId(updatePatientDetails.getId());

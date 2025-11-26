@@ -12,6 +12,8 @@ import java.util.List;
 public interface PatientService {
  List<PatientResponseDTO> getAllPatients();
 
+ PatientResponseDTO getPatientById(java.util.UUID id);
+
  PatientResponseDTO updatePatientDetails(UpdatePatientDetails updatePatientDetails);
 
  PatientCreationResponse createPatient(PatientCreationRequest request);

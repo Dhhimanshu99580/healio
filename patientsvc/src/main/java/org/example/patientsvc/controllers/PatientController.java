@@ -8,7 +8,6 @@ import org.example.patientsvc.domains.PatientDeletionResponse;
 import org.example.patientsvc.domains.PatientResponseDTO;
 import org.example.patientsvc.domains.UpdatePatientDetails;
 import org.example.patientsvc.services.PatientService;
-import org.example.patientsvc.services.PatientServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +34,13 @@ public class PatientController {
         List<PatientResponseDTO>patients = patientService.getAllPatients();
         return ResponseEntity.ok().body(patients);
     }
+
+    @GetMapping(path="/{id}")
+    public ResponseEntity<PatientResponseDTO> getPatientById(@PathVariable UUID id) {
+        PatientResponseDTO patient = patientService.getPatientById(id);
+        return ResponseEntity.ok().body(patient);
+    }
+
     @PatchMapping(path="/updateDetails")
     public ResponseEntity<PatientResponseDTO> updatePatientDetails(@RequestBody @Valid UpdatePatientDetails updatePatientDetails) {
         return ResponseEntity.ok().body(patientService.updatePatientDetails(updatePatientDetails));
